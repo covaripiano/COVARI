@@ -352,25 +352,12 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h3 class=" mb-4">Información</h3>
                 <form action="https://formsubmit.co/covaripiano@gmail.com" method="POST">
-    <!-- Campos visibles -->
-    <div class="form-group">
-        <input type="text" name="name" class="form-control border-0 py-4" placeholder="Escribe tu nombre" required />
-    </div>
-    <div class="form-group">
-        <input type="email" name="email" class="form-control border-0 py-4" placeholder="Tu correo" required />
-    </div>
-    <div class="form-group">
-        <textarea name="message" class="form-control border-0 py-4" placeholder="Escribe tu mensaje" rows="7" required></textarea>
-    </div>
-
-    <!-- Campos ocultos de FormSubmit -->
-    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://tu-sitio.com/gracias.html">
-
-    <div>
-        <button class="btn btn-primary btn-block border-0 py-3" type="submit">Enviar</button>
-    </div>
+  <input type="text" name="name" placeholder="Nombre" required>
+  <input type="email" name="email" placeholder="Correo" required>
+  <textarea name="message" placeholder="Mensaje" required></textarea>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="Mensaje de prueba">
+  <button type="submit">Enviar</button>
 </form>
             </div>
         </div>
@@ -405,6 +392,7 @@
 </body>
 
 </html>
+
 
 
 
