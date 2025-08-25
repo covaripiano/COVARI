@@ -251,21 +251,58 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h3 class=" mb-4">Información</h3>
-                <form action="https://formsubmit.co/covaripiano@gmail.com" method="POST">
-                    <div class="form-group">
-                        <input type="text" class="form-control border-0 py-4" placeholder="Escribe tu nombre" required="required" />
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control border-0 py-4" placeholder="Tu correo"
-                            required="required" />
-                    </div>
-                     <div class="form-group">
-                                <textarea class="form-control" id=" placeholder="Message *" rows="7" required></textarea>
-                            </div>
-                    <div>
-                        <button class="btn btn-primary btn-block border-0 py-3" type="submit">Enviar</button>
-                    </div>
-                </form>
+    <div class="container mt-5">
+  <div id="form-message" class="alert alert-success d-none" role="alert">
+    ¡Gracias por tu mensaje! Te responderemos pronto.
+  </div>
+
+  <form id="contactForm" action="https://formsubmit.co/covaripiano@gmail.com" method="POST">
+    <!-- Campos visibles -->
+    <div class="form-group mb-3">
+      <input type="text" name="name" class="form-control border-0 py-3" placeholder="Escribe tu nombre" required>
+    </div>
+    <div class="form-group mb-3">
+      <input type="email" name="email" class="form-control border-0 py-3" placeholder="Tu correo" required>
+    </div>
+    <div class="form-group mb-3">
+      <textarea name="message" class="form-control border-0 py-3" placeholder="Escribe tu mensaje" rows="5" required></textarea>
+    </div>
+
+    <!-- Campos ocultos de FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Mensaje desde la web">
+
+   <div class="form-group mb-3">
+      <button type="submit" class="btn btn-primary border-0 py-3 w-100">Enviar</button>
+    </div>
+  </form>
+</div>
+
+<!-- Script para mostrar mensaje de éxito sin recargar -->
+<script>
+  const form = document.getElementById('contactForm');
+  const messageDiv = document.getElementById('form-message');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita recarga de página
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        messageDiv.classList.remove('d-none');
+        form.reset();
+      } else {
+        alert("Ups, ocurrió un error al enviar. Intenta de nuevo.");
+      }
+    })
+    .catch(error => alert("Ups, ocurrió un error al enviar. Intenta de nuevo."));
+  });
+</script>
             </div>
         </div>
         <div class="container-fluid pt-5" style="border-top: 1px solid rgba(10, 10, 10, 0.2);;">
@@ -300,3 +337,4 @@
 
 
 </html>
+
