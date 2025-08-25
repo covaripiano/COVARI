@@ -1,0 +1,51 @@
+.header {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../imgs/header.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: $white;
+
+    
+    @include media-breakpoint-down(sm) {
+        height: 500px;
+        min-height: 500px;
+
+        .social-icons {
+            margin: auto;
+        }
+
+        .header-content {
+            padding: 20px;
+
+            .header-mono {
+                letter-spacing: 2px;
+            }
+
+        }
+    }
+
+      // header title
+    &-title {
+        font-size: 2.4rem;
+        font-weight: bold;
+        opacity: .8;
+        color: $body-color;
+    }
+
+    // header mini
+    &-mini {
+        min-height: 24rem;
+        height: 24rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        background: lighten($primary, 20%);
+    }
+}
