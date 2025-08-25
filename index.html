@@ -501,16 +501,19 @@ Además, valoro enormemente las experiencias interpersonales y el intercambio cu
   <div class="row">
     <!-- FORMULARIO -->
       <style>
-  .form-control {
-    border: 2px solid #000;   /* Borde negro permanente */
-    border-radius: 10px;      /* Bordes redondeados */
+  /* Aplica a todos los inputs y textarea dentro de forms */
+  form input.form-control,
+  form textarea.form-control {
+    border: 2px solid #000 !important; /* borde siempre visible */
+    border-radius: 10px;
     padding: 12px 15px;
-    background-color: #fff;   /* Fondo blanco */
+    background-color: #fff !important;
     color: #000;
   }
 
-  .form-control:focus {
-    border-color: #007bff;    /* Azul cuando se hace clic */
+  form input.form-control:focus,
+  form textarea.form-control:focus {
+    border-color: #007bff !important; /* borde azul al enfocar */
     box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
     outline: none;
   }
