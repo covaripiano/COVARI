@@ -497,41 +497,93 @@ Además, valoro enormemente las experiencias interpersonales y el intercambio cu
         </div>
     </section>
 
-        <div id="map" class="map"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="contact-form-card">
-                        <h4 class="contact-title">Enviar mensaje</h4>
-                         <form id="contactForm" action="https://formsubmit.co/veraemmita99@gmail.com" method="POST">
-    <!-- Campos visibles -->
-    <div class="form-group mb-3">
-      <input type="text" name="name" class="form-control border-0 py-3" placeholder="Escribe tu nombre" required>
-    </div>
-    <div class="form-group mb-3">
-      <input type="email" name="email" class="form-control border-0 py-3" placeholder="Tu correo" required>
-    </div>
-    <div class="form-group mb-3">
-      <textarea name="message" class="form-control border-0 py-3" placeholder="Escribe tu mensaje" rows="5" required></textarea>
+<div class="container">
+  <div class="row">
+    <!-- FORMULARIO -->
+    <div class="col-lg-8">
+      <div class="contact-form-card">
+        <h4 class="contact-title">Enviar mensaje</h4>
+        <form id="contactForm" action="https://formsubmit.co/veraemmita99@gmail.com" method="POST">
+          
+          <div class="form-group mb-3">
+            <input type="text" name="name" class="form-control border-0 py-3" placeholder="Nombre *" required>
+          </div>
+
+          <div class="form-group mb-3">
+            <input type="email" name="email" class="form-control border-0 py-3" placeholder="Correo *" required>
+          </div>
+
+          <div class="form-group mb-3">
+            <textarea name="message" class="form-control border-0 py-3" placeholder="Escribe tu mensaje *" rows="7" required></textarea>
+          </div>
+
+          <!-- Campos ocultos -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Mensaje desde la web">
+
+          <div class="form-group mb-3">
+            <button type="submit" class="btn btn-primary border-0 py-3 w-100">Enviar mensaje</button>
+          </div>
+        </form>
+
+        <!-- Mensaje de éxito -->
+        <div id="form-message" class="alert alert-success d-none mt-3">
+          ✅ Tu mensaje fue enviado con éxito. ¡Gracias por contactarme!
+        </div>
+      </div>
     </div>
 
-    <!-- Campos ocultos de FormSubmit -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Mensaje desde la web">
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <div class="col-lg-4">
+      <div class="contact-info-card">
+        <h4 class="contact-title">Contáctame</h4>
 
-   <div class="form-group mb-3">
-      <button type="submit" class="btn btn-primary border-0 py-3 w-100">Enviar</button>
+        <div class="row mb-2">
+          <div class="col-1 pt-1 mr-1">
+            <i class="ti-mobile icon-md"></i>
+          </div>
+          <div class="col-10">
+            <h6 class="d-inline">Teléfono: <br> <span class="text-muted">0992814506</span></h6>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-1 pt-1 mr-1">
+            <i class="ti-map-alt icon-md"></i>
+          </div>
+          <div class="col-10">
+            <h6 class="d-inline">Dirección: <br> <span class="text-muted">Guayaquil, Urdenor.</span></h6>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-1 pt-1 mr-1">
+            <i class="ti-envelope icon-md"></i>
+          </div>
+          <div class="col-10">
+            <h6 class="d-inline">Email: <br> <span class="text-muted">veraemmita99@gmail.com</span></h6>
+          </div>
+        </div>
+
+        <!-- Redes sociales -->
+        <ul class="social-icons pt-4">
+          <li class="social-item"><a class="social-link text-dark" href="https://www.facebook.com/emmaandrea.vera?mibextid=ZbWKwL" target="_blank"><i class="ti-facebook"></i></a></li>
+          <li class="social-item"><a class="social-link text-dark" href="https://x.com/EmmaVerod?t=CAq_EX5rKhQAwuoqAwIgIA&s=08" target="_blank"><i class="ti-twitter"></i></a></li>
+          <li class="social-item"><a class="social-link text-dark" href="https://youtube.com/@emmavera467?si=NdYDMC1-hj_HJQjL" target="_blank"><i class="ti-youtube"></i></a></li>
+          <li class="social-item"><a class="social-link text-dark" href="https://www.instagram.com/emma_verod?igsh=MWdna2IyeXQxY2pzYw==" target="_blank"><i class="ti-instagram"></i></a></li>
+        </ul>
+      </div>
     </div>
-  </form>
+  </div>
 </div>
 
-<!-- Script para mostrar mensaje de éxito sin recargar -->
+<!-- Script para mostrar mensaje de éxito -->
 <script>
   const form = document.getElementById('contactForm');
   const messageDiv = document.getElementById('form-message');
 
   form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Evita recarga de página
+    e.preventDefault();
     const formData = new FormData(form);
 
     fetch(form.action, {
@@ -544,52 +596,21 @@ Además, valoro enormemente las experiencias interpersonales y el intercambio cu
         messageDiv.classList.remove('d-none');
         form.reset();
       } else {
-        alert("Ups, ocurrió un error al enviar. Intenta de nuevo.");
+        alert("❌ Ocurrió un error al enviar. Intenta de nuevo.");
       }
     })
-    .catch(error => alert("Ups, ocurrió un error al enviar. Intenta de nuevo."));
+    .catch(error => alert("❌ Ocurrió un error al enviar. Intenta de nuevo."));
   });
 </script>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info-card">
-                        <h4 class="contact-title">Contáctame</h4>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-mobile icon-md"></i>
-                            </div>
-                            <div class="col-10 ">
-                                <h6 class="d-inline">Teléfono: <br> <span class="text-muted">0992814506</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-map-alt icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Dirección  :<br> <span class="text-muted">Guayaquil, Urdenor.</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-envelope icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Email :<br> <span class="text-muted">veraemmita99@gmail.com</span></h6>
-                            </div>
-                        </div>
-                        <ul class="social-icons pt-4">
-                            <li class="social-item"><a class="social-link text-dark" href="https://www.facebook.com/emmaandrea.vera?mibextid=ZbWKwL"target="_blank" ><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                             <li class="social-item"><a class="social-link text-dark" href="https://x.com/EmmaVerod?t=CAq_EX5rKhQAwuoqAwIgIA&s=08" target="_blank" ><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                             <li class="social-item"><a class="social-link text-dark" href="https://youtube.com/@emmavera467?si=NdYDMC1-hj_HJQjL" target="_blank"><i class="ti-youtube" aria-hidden="true"></i></a></li>
-                             <li class="social-item"><a class="social-link text-dark" href="https://www.instagram.com/emma_verod?igsh=MWdna2IyeXQxY2pzYw==" target="_blank" ><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                        </ul> 
-                    </div>
-                </div>
-            </div>
 
-        </div>
+
+
+
+
+
+    
+                         
+                   
 <footer class="footer py-3">
         <div class="container">
             <p class="small mb-0 text-light">
